@@ -1,0 +1,40 @@
+{
+  "name": "gdmap-auth",
+  "version": "0.0.4-9",
+  "authors": [
+    "jeroenp <jeroen.polman@geodan.nl>"
+  ],
+  "description": "Library to manage user authentication",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "gdmap",
+    "auth",
+    "cloud"
+  ],
+  "license": "MIT",
+  "homepage": "http://gitlab.team.geodan.nl/gdmap/gdmap-auth.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "doc",
+    "js",
+    "temp",
+    "grunt",
+    "grunt-tasks-local",
+    "gruntfile.js",
+    "package.json",
+    "debug.html",
+    "README.md",
+    ".bowerrc",
+    ".gitignore",
+    ".gitmodules",
+    ".jscs.json"
+  ],
+  "dependencies": {
+    "gdmap-core": ">=0.2.7-0"
+  }
+}

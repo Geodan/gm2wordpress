@@ -1,0 +1,38 @@
+{
+  "name": "openlayers2plugin",
+  "description": "openlayers2 wordpress plugin",
+  "main": "main.js",
+  "authors": [
+    "gabriel guita"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "openlayers2"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "osm-cats.php",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+
+  "devDependencies": {
+    "jquery": "1.11.1",
+    "jquery-ui": "~1.11.0",
+    "gdmap-config2ol": ">=0.0.18-0",
+    "gdmap-config": ">=0.3.12-0",
+    "OpenLayers": "2.13.1",
+    "gdmap-auth": ">=0.0.4-0",
+    "bootstrap": "~3.3.5",
+    "babel": "~0.0.1",
+    "system.js": "~0.19.17"
+  }
+}

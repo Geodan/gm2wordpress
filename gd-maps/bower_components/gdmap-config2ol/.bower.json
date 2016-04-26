@@ -1,0 +1,61 @@
+{
+  "name": "gdmap-config2ol",
+  "version": "0.0.18-4",
+  "homepage": "https://git.geodan.nl/gm-client/gdmap-config2ol.git",
+  "authors": [
+    "Piebe <piebev@gmail.com>",
+    "Jeroen <jeroen.polman@geodan.nl>",
+    "Rob <rob.van.mierlo@geodan.nl>"
+  ],
+  "description": "Translate a geodan map config document to an openlayers object",
+  "main": "dist/gdmap-config2ol.min.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "repository": {
+    "type": "https",
+    "url": "https://git.geodan.nl/gm-client/gdmap-config2ol.git"
+  },
+  "license": "Geodan",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "grunt-tasks",
+    "js",
+    ".bowerrc",
+    ".gitignore",
+    ".jscs.json",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md",
+    "temp",
+    "debug",
+    "debug.html",
+    "example"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1",
+    "OpenLayers": "2.13.1",
+    "gdmap-core": ">=0.2.6-0",
+    "gdmap-config": ">=0.3.12-0"
+  },
+  "devDependencies": {
+    "requirejs-plugins": "~1.0.2",
+    "requirejs-text": "~2.0.12"
+  },
+  "_release": "0.0.18-4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.18-4",
+    "commit": "d63e612294a10535e67f8ea6e8adf6d842f25ba2"
+  },
+  "_source": "ssh://git@git.geodan.nl:222/gm-client/gdmap-config2ol.git",
+  "_target": ">=0.0.18-0",
+  "_originalSource": "gdmap-config2ol"
+}

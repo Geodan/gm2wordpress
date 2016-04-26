@@ -1,0 +1,37 @@
+  #map.olMap img { max-width: none; }
+  #selectConf{ width: 100%; }
+
+  #geodanmaps-container .inside{
+    width: 100%;
+  }
+
+  #geodanmaps-container .form-table td input{
+   width: 100%;
+  }
+
+  #geodanmaps-container.postbox{
+    display: inline-block;
+    width: 100%;
+  }
+
+  #geodanmaps-container.postbox .inside{
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+  }
+
+  #geodanmaps-container.postbox.closed .inside{
+    display: none;
+  }
+
+  .form-table.gd-map-plugin{
+    width: 50%; 
+    float: left;
+  }
+
+  .admin-map{
+    height: 500px; 
+    width: 50%; 
+    float: left;
+  }

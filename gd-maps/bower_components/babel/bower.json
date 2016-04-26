@@ -1,0 +1,21 @@
+{
+  "name": "babel",
+  "version": "0.0.1",
+  "authors": [
+    "piebe <piebev@gmail.com>"
+  ],
+  "description": "",
+  "main": "browser.min.js",
+  "moduleType": [
+    "systemjs"
+  ],
+  "private": false,
+  "ignore": [
+  ],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  }
+}

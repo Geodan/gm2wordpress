@@ -1,0 +1,53 @@
+{
+  "name": "gdmap-config",
+  "version": "0.3.12-171",
+  "homepage": "https://git.geodan.nl/gm-client/gdmap-config.git",
+  "authors": [
+    "Jeroen <jeroen.polman@geodan.nl>",
+    "Rob <rob.van.mierlo@geodan.nl>"
+  ],
+  "description": "Input and output of configuration from the document service",
+  "main": "dist/gdmap-config.min.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "Geodan",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "test-e2e",
+    ".bowerrc",
+    ".gitignore",
+    ".jscs.json",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md",
+    "js",
+    "grunt-tasks",
+    "example",
+    "temp",
+    "mocks"
+  ],
+  "repository": {
+    "type": "https",
+    "url": "https://git.geodan.nl/gm-client/gdmap-config.git"
+  },
+  "dependencies": {
+    "gdmap-core": ">=0.2.7-11",
+    "jquery": "1.11.1"
+  },
+  "devDependencies": {
+    "gdmap-schema": ">=0.0.5-0",
+    "requirejs": "~2.1.14",
+    "jsoneditor": "~3.1.0",
+    "requirejs-plugins": "~1.0.2",
+    "requirejs-text": "~2.0.12",
+    "poly": "~0.6.0"
+  }
+}

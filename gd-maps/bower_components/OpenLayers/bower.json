@@ -1,0 +1,27 @@
+{
+  "name": "OpenLayers",
+  "version": "2.13.1",
+  "authors": [
+    "jeroenp <jeroen.polman@geodan.nl>"
+  ],
+  "main": "OpenLayers.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "OpenLayers"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "http://www.openlayers.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+	".bowerrc",
+	".gitignore",
+	"bower.json",
+	"package.json"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "babel",
+  "version": "0.0.1",
+  "authors": [
+    "piebe <piebev@gmail.com>"
+  ],
+  "description": "",
+  "main": "browser.min.js",
+  "moduleType": [
+    "systemjs"
+  ],
+  "private": false,
+  "ignore": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "7fe4e195eb258b2c2119e95cb2d0e45bcf8e95bc"
+  },
+  "_source": "ssh://git@git.geodan.nl:222/third-party/babel.git",
+  "_target": "~0.0.1",
+  "_originalSource": "babel"
+}

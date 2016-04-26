@@ -1,0 +1,42 @@
+{
+  "name": "gdmap-core",
+  "version": "0.2.7-12",
+  "homepage": "https://git.geodan.nl/gm-client/gdmap-core.git",
+  "authors": [
+    "Jeroen <jeroen.polman@geodan.nl>",
+    "Rob <rob.van.mierlo@geodan.nl>"
+  ],
+  "description": "The core functionality for Geodan cloud",
+  "main": "dist/gdmap-core.min.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "repository": {
+    "type": "https",
+    "url": "https://git.geodan.nl/gm-client/gdmap-core.git"
+  },
+  "license": "Geodan",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "grunt-tasks",
+    "js",
+    ".bowerrc",
+    ".gitignore",
+    ".jscs.json",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md",
+    "temp"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1"
+  },
+  "devDependencies": {}
+}

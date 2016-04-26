@@ -1,0 +1,36 @@
+{
+  "name": "OpenLayers",
+  "version": "2.13.1",
+  "authors": [
+    "jeroenp <jeroen.polman@geodan.nl>"
+  ],
+  "main": "OpenLayers.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "OpenLayers"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "http://www.openlayers.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".bowerrc",
+    ".gitignore",
+    "bower.json",
+    "package.json"
+  ],
+  "_release": "2.13.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.13.1",
+    "commit": "6b321b123523e71bd66863b37cf7032e38f89c20"
+  },
+  "_source": "ssh://git@git.geodan.nl:222/third-party/ol2.git",
+  "_target": "2.13.1",
+  "_originalSource": "OpenLayers"
+}
