@@ -1,4 +1,4 @@
-OSM Categories
+GD Maps - Wordpress plugin
 ==============
 Contributors: Gabriel Guita
 Tags: geodan, geotag, geolocation, geocache, geocaching, OSM, OpenLayers, Open Layers, marker, geocode, geotagging
