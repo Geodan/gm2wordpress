@@ -1,6 +1,12 @@
-/**
- * Created by gabriel on 7/04/2016.
- */
+/*
+  Plugin Name: Geodanmaps
+  Plugin URI:  www.geodanmaps.nl
+  Description: Geodanmaps plugin to embed multiple maps from different public configurations.
+  Version: 0.1
+  Author: Gabriel Guita
+  Author http://www.geodanmaps.nl
+  License: MIT
+*/
 System.config({
 	transpiler: 'babel',
 	map: {

@@ -1,6 +1,3 @@
- <link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet">
- <link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
 <?php
 /*
   Plugin Name: Geodanmaps
@@ -26,6 +23,10 @@ function add_inputs( $post ) {
   $gd_map_width = get_post_meta( $post->ID, 'gd_map_width', true );
   $gd_map_height = get_post_meta( $post->ID, 'gd_map_height', true );
 ?>
+
+ <link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>
+ <link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
 
  <table class="form-table gd-map-plugin <?php echo $gd_map_selectConf_value; ?>">
       <tr valign="top" >
@@ -167,12 +168,15 @@ function multiple_maps($atts) {
 
    ), $atts));
 
-  $showMap = '<div class="embedded-map">';
-  $showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
-  $showMap .= 'width="' . $width .'" height="' . $height .'">';
-  $showMap .= '<embed src="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
-  $showMap .= '</object>';
-  $showMap .= '</div>';
+    $showMap ='<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
+    $showMap .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
+    $showMap .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
+    $showMap .= '<div class="embedded-map">';
+    $showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
+    $showMap .= 'width="' . $width .'" height="' . $height .'">';
+    $showMap .= '<embed src="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
+    $showMap .= '</object>';
+    $showMap .= '</div>';
 
   return $showMap;
 }

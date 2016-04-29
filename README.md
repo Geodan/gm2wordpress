@@ -7,6 +7,7 @@ Tested up to: 2.4.1
 Stable tag: 1.0 
 License: MIT
 License URI: https://opensource.org/licenses/MIT
+Website URL: http://www.geodanmaps.nl
 
 OpenStreetMap plugin to embed a map with markers to articles from different categories in different map layers. 
 

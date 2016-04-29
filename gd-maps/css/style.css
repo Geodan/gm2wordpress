@@ -1,4 +1,13 @@
-  #map.olMap img { max-width: none; }
+/*
+  Plugin Name: Geodanmaps
+  Plugin URI:  www.geodanmaps.nl
+  Description: Geodanmaps plugin to embed multiple maps from different public configurations.
+  Version: 0.1
+  Author: Gabriel Guita
+  Author http://www.geodanmaps.nl
+  License: MIT
+*/
+#map.olMap img { max-width: none; }
   #selectConf{ width: 100%; }
 
   #geodanmaps-container .inside{
@@ -35,3 +44,5 @@
     width: 50%; 
     float: left;
   }
+
+  .embedded-map{    min-height: 500px;}
