@@ -8,6 +8,7 @@
   Author http://www.geodanmaps.nl
   License: MIT
 */
+error_reporting(E_ALL ^ E_NOTICE);
 
 function add_map_section() {
     add_meta_box( 'geodanmaps-container', 'GeodanMaps', 'add_inputs', 'page' );
@@ -17,8 +18,6 @@ add_action( 'add_meta_boxes', 'add_map_section' );
 
 //**** backend wordpress plugin block on each page ****
 function add_inputs( $post ) {
-
-
 $gd_map_selectConf_value = get_post_meta( $post->ID, 'gd_map_selectConf_value', true );
 $gd_map_api_code = get_post_meta( $post->ID, 'gd_map_api_code', true );
 $gd_map_zoom_lvl = get_post_meta( $post->ID, 'gd_map_zoom_lvl', true );
@@ -118,13 +117,13 @@ function multiple_maps($atts) {
 
    ), $atts));
 
-$showMap ='<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
-$showMap .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
-$showMap .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
+// $showMap = '<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
+// $showMap .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
+// $showMap .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
 $showMap .= '<div class="embedded-map">';
-$showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
+$showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="https://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
 $showMap .= 'width="' . $width .'" height="' . $height .'">';
-$showMap .= '<embed src="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
+$showMap .= '<embed src="https://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
 $showMap .= '</object>';
 $showMap .= '</div>';
 
