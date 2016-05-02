@@ -17,123 +17,74 @@ add_action( 'add_meta_boxes', 'add_map_section' );
 
 //**** backend wordpress plugin block on each page ****
 function add_inputs( $post ) {
-  $gd_map_selectConf_value = get_post_meta( $post->ID, 'gd_map_selectConf_value', true );
-  $gd_map_api_code = get_post_meta( $post->ID, 'gd_map_api_code', true );
-  $gd_map_zoom_lvl = get_post_meta( $post->ID, 'gd_map_zoom_lvl', true );
-  $gd_map_width = get_post_meta( $post->ID, 'gd_map_width', true );
-  $gd_map_height = get_post_meta( $post->ID, 'gd_map_height', true );
-?>
 
- <link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>
- <link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
 
- <table class="form-table gd-map-plugin <?php echo $gd_map_selectConf_value; ?>">
-      <tr valign="top" >
-        <td>
-          <p>List of public configurations:</p>
-          <select id="selectConf" name="selectConf_name"></select>
-          <input type="hidden" id="gd_map_selectConf_value" name="gd_map_selectConf_value" value="<?php echo $gd_map_selectConf_value; ?>" />
-          <small>Select configuration name for displaying the map.</small>
-        </td>
-      </tr>
+$gd_map_selectConf_value = get_post_meta( $post->ID, 'gd_map_selectConf_value', true );
+$gd_map_api_code = get_post_meta( $post->ID, 'gd_map_api_code', true );
+$gd_map_zoom_lvl = get_post_meta( $post->ID, 'gd_map_zoom_lvl', true );
+$gd_map_width = get_post_meta( $post->ID, 'gd_map_width', true );
+$gd_map_height = get_post_meta( $post->ID, 'gd_map_height', true );
 
-      <tr valign="top">
-        <td>
-          <p>API KEY:</p>
-          <input type="text" name="gd_map_api_code" id="gd_map_api_code" value="<?php echo $gd_map_api_code; ?>" placeholder="Apikey value" />
-          <small>Put here the apikey for displaying the map <br/> (default apikey is <i>GEME7495HAAR</i>).</small>
-        </td>
-      </tr>
+$postContent = '<script src="../wp-content/plugins/gd-maps/bower_components/system.js/dist/system.js"></script>';
+$postContent .= '<script src="../wp-content/plugins/gd-maps/js/systemConfig.js"></script>';
 
-      <tr valign="top">
-        <td>
-          <p>Zoom level:</p>
-          <input type="text" name="gd_map_zoom_lvl" id="gd_map_zoom_lvl" value="<?php echo $gd_map_zoom_lvl; ?>" placeholder="Zoom level"/>
-          <small>Put here the zoom number for displaying the size of the map <br/> (default value is 4).</small>
-        </td>
-      </tr>
+$postContent .= '<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
+$postContent .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
+$postContent .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
+$postContent .= '<table class="form-table gd-map-plugin "' . $gd_map_selectConf_value . '">';
+$postContent .= '<tr valign="top" ><td>';
+$postContent .= '<p>List of public configurations:</p>'; 
+$postContent .= '<select id="selectConf" name="selectConf_name"></select>'; 
+$postContent .= '<input type="hidden" id="gd_map_selectConf_value" name="gd_map_selectConf_value" value="'.$gd_map_selectConf_value.'" />'; 
+$postContent .= '<small>Select configuration name for displaying the map.</small>'; 
+$postContent .= ' </td></tr>'; 
+$postContent .= ' <tr valign="top"><td>'; 
+$postContent .= '<p>API KEY:</p>'; 
+$postContent .= '<input type="text" name="gd_map_api_code" id="gd_map_api_code" value="'.$gd_map_api_code.'" placeholder="Apikey value" />'; 
+$postContent .= '<small>Put here the apikey for displaying the map <br/> (default apikey is <i>GEME7495HAAR</i>).</small>'; 
+$postContent .= '</td> </tr>'; 
+$postContent .= ' <tr valign="top"><td>'; 
+$postContent .= '<p>Zoom level:</p>'; 
+$postContent .= '<input type="text" name="gd_map_zoom_lvl" id="gd_map_zoom_lvl" value="'.$gd_map_zoom_lvl.'" placeholder="Zoom level"/>'; 
+$postContent .= '<small>Put here the zoom number for displaying the size of the map <br/> (default value is 4).</small>'; 
+$postContent .= '</td></tr>'; 
+$postContent .= '<tr valign="top"><td>'; 
+$postContent .= '<p>Map width:</p>'; 
+$postContent .= '<input type="text" name="gd_map_width" id="gd_map_width" value="'. $gd_map_width . '" placeholder="Width value" />'; 
+$postContent .= ' <small>Default is 100%, dont forget the unit.</small>'; 
+$postContent .= '</td> </tr>'; 
+$postContent .= '<tr valign="top"><td>'; 
+$postContent .= '<p>Map height:</p>'; 
+$postContent .= '<input type="text" name="gd_map_height" id="gd_map_height" value="'. $gd_map_height. '" placeholder="Height value"/>'; 
+$postContent .= ' <small>Default is 560px, dont forget the unit.</small>'; 
+$postContent .= '</td></tr>'; 
+$postContent .= '<tr valign="top"><td><span id="insertButton" class="button button-primary button-large">Insert map</span></td></tr>'; 
+$postContent .= '</table>'; 
+$postContent .= '<div id="map" class="admin-map"></div>'; 
 
-      <tr valign="top">
-        <td>
-         <p>Map width:</p>
-          <input type="text" name="gd_map_width" id="gd_map_width" value="<?php echo  $gd_map_width; ?>" placeholder="Width value" />
-          <small>Default is 100%, don't forget the unit.</small>
-        </td>
-      </tr>
+$postContent .= "
+<script>
+  var orgCode = ". '\'' .$gd_map_selectConf_value . '\';' ."
+  var zoomLevel = ". '\'' . $gd_map_zoom_lvl . '\';' ."
+  if(orgCode === ''){
+      var orgCode = 'GEME7495HAAR';
+  }else{
+    var orgCode = ". '\'' .$gd_map_api_code . '\';' ."
+  }
 
-      <tr valign="top">
-        <td>
-        <p>Map height:</p>
-          <input type="text" name="gd_map_height" id="gd_map_height" value="<?php echo $gd_map_height; ?>" placeholder="Height value"/>
-          <small>Default is 560px, don't forget the unit.</small>
-        </td>
-      </tr>
-      
-      <tr valign="top">
-        <td>
-          <span id="insertButton" class="button button-primary button-large">Insert map</span>
-        </td>
-      </tr>
+  if(zoomLevel === ''){
+      var zoomLevel = 3;
+  }else{
+    var zoomLevel =  ". '\'' . $gd_map_zoom_lvl . '\';' ."
+  }
+  var confValue = ". '\'' .$gd_map_selectConf_value . '\';' ."
+  var urlApi = 'https://services.geodan.nl/public/document/wiebenik/api/';
+  var publicUrlHaar = urlApi + orgCode + '/config/';
+</script>";
 
-    </table>
-
-    <div id="map" class="admin-map"></div>
-
- <?php 
-  //function for insert short code into wordpress editor
-    function _add_my_quicktags()
-    {
-     ?>
-      <script type="text/javascript">
-
-        var confMapValue = $('#gd_map_selectConf_value');
-        var apiMapValue = $('#gd_map_api_code');
-        var widthMapValue = $('#gd_map_width');
-        var heightMapValue = $('#gd_map_height');
-        var zoomMapValue = $('#gd_map_zoom_lvl');
-
-        $("#insertButton").click(function() { 
-
-          if( ! tinyMCE.activeEditor || tinyMCE.activeEditor.isHidden()) {
-            jQuery('textarea#content').val('[gd-maps data="' + confMapValue.val() + '" id="' + apiMapValue.val() + '" width="' + widthMapValue.val() + '" height="' + heightMapValue.val() +'"]');
-          } else {
-            tinyMCE.execCommand('mceInsertRawHTML', false, '[gd-maps name="'+ confMapValue.text() +'" data="' + confMapValue.val() + '" id="' + apiMapValue.val() + '" width="' + widthMapValue.val() + '" height="' + heightMapValue.val() +'"]');
-          }
-
-        });
-
-      </script>
-  <?php }
-    add_action('admin_print_footer_scripts',  '_add_my_quicktags');
- ?>
-
-<script src="../wp-content/plugins/gd-maps/bower_components/system.js/dist/system.js"></script>
-<script src="../wp-content/plugins/gd-maps/js/systemConfig.js"></script>
-
-  <script>
-    var orgCode = '<?php echo $gd_map_selectConf_value; ?>';
-    var zoomLevel = '<?php echo $gd_map_zoom_lvl; ?>';
-
-    if(orgCode === ''){
-        var orgCode = 'GEME7495HAAR';
-    }else{
-      var orgCode = '<?php echo $gd_map_api_code; ?>';
-    }
-
-    if(zoomLevel === ''){
-        var zoomLevel = 3;
-    }else{
-      var zoomLevel = '<?php echo $gd_map_zoom_lvl; ?>';
-    }
-
-    var confValue = '<?php echo $gd_map_selectConf_value; ?>';
-    var urlApi = 'https://services.geodan.nl/public/document/wiebenik/api/';
-    var publicUrlHaar = urlApi + orgCode + '/config/';
-  </script>
-
-<?
-  wp_reset_query();
+echo $postContent;
+return $postContent;
+wp_reset_query();
 }
 
 //**** saving function - for all fields ****
@@ -155,7 +106,6 @@ function save( $post_id ) {
   update_post_meta( $post_id, 'gd_map_height', $gd_map_height );
 
 }
-
 add_action( 'save_post', 'save' );
 
 //**** display map on frontend ****
@@ -168,18 +118,44 @@ function multiple_maps($atts) {
 
    ), $atts));
 
-    $showMap ='<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
-    $showMap .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
-    $showMap .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
-    $showMap .= '<div class="embedded-map">';
-    $showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
-    $showMap .= 'width="' . $width .'" height="' . $height .'">';
-    $showMap .= '<embed src="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
-    $showMap .= '</object>';
-    $showMap .= '</div>';
+$showMap ='<link href="../wp-content/plugins/gd-maps/bower_components/OpenLayers/theme/default/style.css" type="text/css" rel="stylesheet"/>';
+$showMap .= '<link href="../wp-content/plugins/gd-maps/css/style.css" type="text/css" rel="stylesheet" />';
+$showMap .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>';
+$showMap .= '<div class="embedded-map">';
+$showMap .= '<object style="top: 0; bottom: 0; left: 0; right: 0;" data="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" ';
+$showMap .= 'width="' . $width .'" height="' . $height .'">';
+$showMap .= '<embed src="http://services.geodan.nl/public/viewer/?config='. $data .'&amp;a='. $id .'" width="'. $width .'" height="' . $height .'">';
+$showMap .= '</object>';
+$showMap .= '</div>';
 
   return $showMap;
 }
 
 add_shortcode('gd-maps', 'multiple_maps');
+
+   function _add_my_quicktags()
+    {
+     ?>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+
+        var confMapValue = $('#gd_map_selectConf_value');
+        var apiMapValue = $('#gd_map_api_code');
+        var widthMapValue = $('#gd_map_width');
+        var heightMapValue = $('#gd_map_height');
+        var zoomMapValue = $('#gd_map_zoom_lvl');
+
+        $("#insertButton").click(function() { 
+
+          if( ! tinyMCE.activeEditor || tinyMCE.activeEditor.isHidden()) {
+            jQuery('textarea#content').val('[gd-maps data="' + confMapValue.val() + '" id="' + apiMapValue.val() + '" width="' + widthMapValue.val() + '" height="' + heightMapValue.val() +'"]');
+          } else {
+            tinyMCE.execCommand('mceInsertRawHTML', false, '[gd-maps name="'+ confMapValue.text() +'" data="' + confMapValue.val() + '" id="' + apiMapValue.val() + '" width="' + widthMapValue.val() + '" height="' + heightMapValue.val() +'"]');
+          }
+
+        });
+
+      </script>
+<?php }
+add_action('admin_print_footer_scripts',  '_add_my_quicktags');
 ?>
